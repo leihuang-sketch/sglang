@@ -453,9 +453,7 @@ class MooncakeStore(HiCacheStorage):
         )
         end_time = time.perf_counter()
         self.backup_pgs.append(1)
-        self.backup_bandwidth.append(
-            1 / (end_time - start_time) * self.gb_per_page
-        )
+        self.backup_bandwidth.append(1 / (end_time - start_time) * self.gb_per_page)
         return put_result[0] == 0
 
     def batch_set(
@@ -520,9 +518,7 @@ class MooncakeStore(HiCacheStorage):
         )
         end_time = time.perf_counter()
         self.prefetch_pgs.append(1)
-        self.prefetch_bandwidth.append(
-            1 / (end_time - start_time) * self.gb_per_page
-        )
+        self.prefetch_bandwidth.append(1 / (end_time - start_time) * self.gb_per_page)
         return get_result[0] >= 0
 
     def batch_get(
